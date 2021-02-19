@@ -1,0 +1,58 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url 'https://jitpack.io'
+        }
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:5.1.0'
+    }
+}
+
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java'
+//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+
+
+version = "1.0"
+group = "corelin.plugins.library" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "择忆霖心前置插件"
+
+sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+repositories {
+    mavenCentral()
+    maven { url = "https://oss.sonatype.org/content/repositories/snapshots" }
+}
+
+dependencies {
+    compile 'com.google.code.gson:gson:2.8.6'
+
+}
+
+[shadowJar]*.version = "1"
+
+shadowJar {
+    dependencies {
+        exclude 'CatServer-Personal-8706613-universal.jar'
+        exclude 'HealLinCatServer-1.4123.jar'
+        exclude 'lombok.jar'
+        exclude 'Pixelmon-1.12.2-7.2.0-server.jar'
+        exclude 'PlaceholderAPI-2.9.2.jar'
+        exclude 'spigot-1.12-R0.1-SNAPSHOT.jar'
+        exclude(dependency('org.spigotmc:plugin-annotations'))
+        exclude(dependency('org.spongepowered:spongeapi'))
+    }
+}
+
+import org.apache.tools.ant.filters.ReplaceTokens
+
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        filter ReplaceTokens, tokens: [version: version]
+    }
+}

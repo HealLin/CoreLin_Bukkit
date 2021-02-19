@@ -1,0 +1,7 @@
+name: CoreLin
+main: corelin.plugins.library.CoreLin
+version: @version@
+author: 择忆霖心
+prefix: 择忆霖心前置插件
+description: 择忆霖心前置插件
+website: sp.heallin.cn
