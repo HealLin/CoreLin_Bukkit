@@ -1,7 +1,8 @@
-package corelin.plugins.library.plugin.utils.server;
+package corelin.plugins.library.utils.server;
 
 import corelin.plugins.library.CoreLin;
 import corelin.plugins.library.utils.GameVersion;
+import corelin.plugins.library.utils.R12.CraftServer;
 
 /**
  * @author 择忆霖心
@@ -23,7 +24,7 @@ public class BukkitServer {
     public CraftBukkitServer getServer(){
         switch (GameVersion.gameVersion){
             case "1.12.2":{
-
+                return new CraftServer();
             }
             default:{
                 return null;

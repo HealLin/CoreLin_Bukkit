@@ -2,7 +2,7 @@ package corelin.plugins.library.plugin.loader;
 
 import corelin.plugins.library.CoreLin;
 import corelin.plugins.library.plugin.java.CoreLinPluginClassLoader;
-import corelin.plugins.library.plugin.utils.PluginDescriptionFileUtils;
+import corelin.plugins.library.utils.PluginDescriptionFileUtils;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Server;
 import org.bukkit.event.Event;

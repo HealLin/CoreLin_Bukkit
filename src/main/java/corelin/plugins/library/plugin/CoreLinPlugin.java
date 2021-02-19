@@ -1,7 +1,6 @@
 package corelin.plugins.library.plugin;
 
 import corelin.plugins.library.api.CoreLinApi;
-import corelin.plugins.library.api.plugin.annotation.SpigotPlugin;
 import corelin.plugins.library.plugin.command.CoreAddCommand;
 import corelin.plugins.library.plugin.config.CoreLinConfig;
 import corelin.plugins.library.plugin.config.player.PlayerDataListener;
@@ -9,10 +8,8 @@ import corelin.plugins.library.plugin.config.player.PlayerDataManager;
 import corelin.plugins.library.plugin.interfaces.CommandHelp;
 import corelin.plugins.library.plugin.interfaces.PermissionHandle;
 import corelin.plugins.library.plugin.java.CoreLinPluginClassLoader;
-import corelin.plugins.library.plugin.utils.server.BukkitServer;
-import lombok.Getter;
+import corelin.plugins.library.utils.server.BukkitServer;
 import lombok.Setter;
-import org.apache.commons.lang.Validate;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.command.Command;
@@ -25,13 +22,9 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginLoader;
 import org.bukkit.plugin.PluginLogger;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.List;
 import java.util.logging.Logger;
 

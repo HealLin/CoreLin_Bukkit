@@ -1,4 +1,4 @@
-package corelin.plugins.library.plugin.utils.server;
+package corelin.plugins.library.utils.server;
 
 import org.bukkit.command.SimpleCommandMap;
 
@@ -9,4 +9,6 @@ import org.bukkit.command.SimpleCommandMap;
 public interface CraftBukkitServer {
 
     SimpleCommandMap getCommandMap();
+
+    String getVersion();
 }

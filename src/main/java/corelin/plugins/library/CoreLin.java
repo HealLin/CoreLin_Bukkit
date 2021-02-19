@@ -4,12 +4,13 @@ import corelin.plugins.library.api.CoreLinApi;
 import corelin.plugins.library.module.CoreLibModuleManager;
 import corelin.plugins.library.module.ModuleMain;
 import corelin.plugins.library.plugin.loader.CoreLinPluginLoader;
-import corelin.plugins.library.plugin.utils.server.BukkitServer;
+import corelin.plugins.library.utils.server.BukkitServer;
 import corelin.plugins.library.utils.GameVersion;
 import corelin.plugins.library.utils.ServerChecking;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.json.simple.JSONAware;
 
 /**
  * @author 择忆霖心
@@ -36,11 +37,11 @@ public class CoreLin extends JavaPlugin {
         this.api = new CoreLinApi(this);
         instance = this;
         this.info("开始加载......");
+        BukkitServer server = new BukkitServer(this);
         new GameVersion();
         this.info("检测到游戏版本:" + GameVersion.gameVersion);
         ServerChecking.initialization(this);
         this.moduleMain = new ModuleMain(this);
-        BukkitServer server = new BukkitServer(this);
         moduleManager = new CoreLibModuleManager(this);
         this.moduleManager.load();
         Bukkit.getPluginManager().registerInterface(CoreLinPluginLoader.class);
