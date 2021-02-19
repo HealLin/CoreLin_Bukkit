@@ -32,6 +32,8 @@ repositories {
 dependencies {
     compile 'com.google.code.gson:gson:2.8.6'
     compile 'com.squareup.okhttp3:okhttp:3.10.0'
+    compile 'org.projectlombok:lombok:1.18.10'
+    annotationProcessor 'org.projectlombok:lombok:1.18.10'
 }
 
 [shadowJar]*.version = "1"
