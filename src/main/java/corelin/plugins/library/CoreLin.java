@@ -44,6 +44,7 @@ public class CoreLin extends JavaPlugin {
         this.moduleMain = new ModuleMain(this);
         moduleManager = new CoreLibModuleManager(this);
         this.moduleManager.load();
+        this.info("替换插件加载器!");
         Bukkit.getPluginManager().registerInterface(CoreLinPluginLoader.class);
     }
 

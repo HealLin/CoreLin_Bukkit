@@ -19,6 +19,11 @@ public class ServerChecking {
         isCatServer = isCatServer(coreLin);
     }
 
+    /**
+     * 检测是否是CatServer
+     * @param coreLin
+     * @return 是否是cat
+     */
     public static boolean isCatServer(CoreLin coreLin){
         try {
             Class.forName("catserver.server.CatServer");

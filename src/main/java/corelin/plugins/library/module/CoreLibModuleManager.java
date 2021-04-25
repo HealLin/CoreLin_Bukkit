@@ -53,7 +53,18 @@ public class CoreLibModuleManager {
         this.enableModuleInfo.forEach(this::loadAllModule);
     }
 
+    /**
+     * 预先加载一下所有模块拿到信息查看是否和当前核心版本兼容
+     * 使用ASM查询模块的信息
+     */
     private void preLoading() {
+        for (File ps : Objects.requireNonNull(this.directoryFile.listFiles())){
+            //如果是文件夹或者不是jar包就跳过
+            if (ps.isDirectory() || !(ps.getName().endsWith(".jar"))){
+                continue;
+            }
+
+        }
         /*if (!this.coreLib.getBasis().isHasUse()){
             this.coreLib.info("找不到主要模块，正在为您准备下载");
             DownloadModule downloadModule = new DownloadModule(this.coreLib);

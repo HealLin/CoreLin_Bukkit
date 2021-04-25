@@ -2,6 +2,7 @@ package corelin.plugins.library.plugin.loader;
 
 import corelin.plugins.library.CoreLin;
 import corelin.plugins.library.plugin.java.CoreLinPluginClassLoader;
+import corelin.plugins.library.plugin.java.CoreLinPluginMainClassLoader;
 import corelin.plugins.library.utils.PluginDescriptionFileUtils;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Server;
@@ -38,11 +39,14 @@ public class CoreLinPluginLoader implements PluginLoader {
 
     private CoreLin coreLin;
 
+    private final String PLUGIN_VERSION = "1.0";
+
 
     public CoreLinPluginLoader(Server instance){
         Validate.notNull(instance, "服务器实例不能为空");
         this.server = instance;
         this.coreLin = CoreLin.getInstance();
+        this.coreLin.info("插件加载器开始加载...版本" + PLUGIN_VERSION);
     }
 
 
@@ -107,10 +111,12 @@ public class CoreLinPluginLoader implements PluginLoader {
 
         CoreLinPluginClassLoader loader;
         try {
-            loader = this.coreLin.getModuleMain().getModuleAPI().getPluginClassLoad(this, getClass().getClassLoader(),
-                    description, dataFolder, file);
-        } catch (Exception ex) {
-            throw ex;
+           /* loader = this.coreLin.getModuleMain().getModuleAPI().getPluginClassLoad(this, getClass().getClassLoader(),
+                    description, dataFolder, file);*/
+            loader = new CoreLinPluginMainClassLoader(this ,
+                    getClass().getClassLoader(),description, dataFolder, file);
+        } catch (Throwable ex) {
+            throw new InvalidPluginException(ex);
         }
 
         loaders.add(loader);

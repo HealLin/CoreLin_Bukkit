@@ -12,13 +12,12 @@ buildscript {
 
 apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'java'
-//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 version = 'git rev-parse --short HEAD'.execute().text.trim()
-group = "corelin.plugins.library" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = "corelin.plugins.library" //
 archivesBaseName = "择忆霖心前置插件"
 
-sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+sourceCompatibility = targetCompatibility = '1.8'
 compileJava {
     sourceCompatibility = targetCompatibility = '1.8'
 }
@@ -40,6 +39,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
     implementation("org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT")
     implementation("org.ow2.asm:asm-debug-all:5.2")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.9.8")
 
 }
 
